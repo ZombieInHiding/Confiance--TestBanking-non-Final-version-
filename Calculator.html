@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+<script type="text/javascript" src="bootstrap.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Fixed Deposit Calculator</title>
+</head>
+<html>
+    <head>
+	<title>Fixed Deposit Estimator</title>
+
+        <script>
+
+        	function round2Fixed(value) {
+  				value = +value;
+
+  				if (isNaN(value))
+   				 return NaN;
+
+  				// Shift
+  				value = value.toString().split('e');
+  				value = Math.round(+(value[0] + 'e' + (value[1] ? (+value[1] + 2) : 2)));
+
+  				// Shift back
+  				value = value.toString().split('e');
+  					return (+(value[0] + 'e' + (value[1] ? (+value[1] - 2) : -2))).toFixed(2);
+				}
+
+            function calculateInterest()
+            {
+            	principalAmount = document.getElementById("p").value;
+            	tenure = document.getElementById("t").value;
+
+            	result1.innerHTML = "Amount on maturity Annually is " + 
+            	round2Fixed(principalAmount * Math.pow((1 + (0.06/1)),(1 * tenure))) ;
+
+            	result2.innerHTML = "Interest Earned on maturity Annually is " + 
+            	round2Fixed((principalAmount * Math.pow((1 + (0.06/1)),(1 * tenure)))- principalAmount);
+
+             }
+
+             
+
+        </script>
+    </head>
+
+    <body>
+        <h1>Simple Interest Calculation</h1>
+
+        Principal Amount: <input id="p"><br/>
+        Rate of Interest: 6% <br/>
+        Tenure(No of Years): <input id="t"><br/>
+        Frequency: Annually<br/>
+<br/>
+        <button onclick="calculateInterest()">Estimate Amount on Maturity</button>
+<br/>
+        <p id="result1"></p>
+
+        <p id="result2"></p> 
+
+        <br/>
+    
+    </body>
+</html>
+</body>
+</html>
