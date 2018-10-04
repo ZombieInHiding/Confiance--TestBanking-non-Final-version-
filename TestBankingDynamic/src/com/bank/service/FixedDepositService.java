@@ -1,6 +1,9 @@
 package com.bank.service;
 
-import com.bank.entity.Account;
+import java.sql.Date;
+import java.util.List;
+
+import com.bank.entity.Accounts;
 import com.bank.entity.FixedDeposit;
 
 public interface FixedDepositService {
@@ -11,9 +14,15 @@ public interface FixedDepositService {
 
 	public void createFdAccount(FixedDeposit depositaccount);
 
-	public Account getAccountNo(String accno);
+	public Accounts getAccountNo(String accno);
 	
-	public String endDateValue(int year);
+	//public List displayFixedDeposits();
 	
-	public String startDateValue();
+	public java.sql.Date endDateValue(int year);
+	
+	/*public java.util.Date startDateValue();*/
+	
+	//public String fetch();
+
+	public List<FixedDeposit> displayFixedDeposits(String accno);
 }

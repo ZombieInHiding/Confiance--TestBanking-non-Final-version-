@@ -13,10 +13,10 @@ public class Aadhaar {
 	private String address;
 	@Id
 	@Column(name = "aadhaar_no")
-	private int aadhaarNo;
+	private String aadhaarNo;
 	
 	@Column(name = "phone_no")
-	private int phoneNo;
+	private String phoneNo;
 	
 	private String city;
 	private int pincode;
@@ -25,9 +25,7 @@ public class Aadhaar {
 	@Column(name = "pan_no")
 	private String panNo;
 	
-	@Column(name = "account_no")
-	private String accountNo;
-
+	
 	public String getName() {
 		return name;
 	}
@@ -44,19 +42,19 @@ public class Aadhaar {
 		this.address = address;
 	}
 
-	public int getAadhaarNo() {
+	public String getAadhaarNo() {
 		return aadhaarNo;
 	}
 
-	public void setAadhaarNo(int aadhaarNo) {
+	public void setAadhaarNo(String aadhaarNo) {
 		this.aadhaarNo = aadhaarNo;
 	}
 
-	public int getPhoneNo() {
+	public String getPhoneNo() {
 		return phoneNo;
 	}
 
-	public void setPhoneNo(int phoneNo) {
+	public void setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
 	}
 

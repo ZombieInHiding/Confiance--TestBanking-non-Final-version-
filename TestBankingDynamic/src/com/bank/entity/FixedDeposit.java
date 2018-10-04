@@ -1,5 +1,7 @@
 package com.bank.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "fixed_deposit")
@@ -20,16 +24,21 @@ public class FixedDeposit {
 
 	@OneToOne
 	@JoinColumn(name = "account_no")
-	private Account accounts;
+	private Accounts accounts;
 
 	@Column(name = "principal_amount")
 	private double principalAmount;
 
+	@Temporal(TemporalType.DATE)
 	@Column(name = "start_date")
-	private String startDate;
+	private Date startDate;
 
+	@Temporal(TemporalType.DATE)
 	@Column(name = "end_date")
-	private String endDate;
+	private Date endDate;
+	
+	@Column(name = "maturity_amount")
+	private double maturityValue;
 
 	public int getFixedDepositNo() {
 		return fixedDepositNo;
@@ -39,11 +48,11 @@ public class FixedDeposit {
 		this.fixedDepositNo = fixedDepositNo;
 	}
 
-	public Account getAccounts() {
+	public Accounts getAccounts() {
 		return accounts;
 	}
 
-	public void setAccounts(Account accounts) {
+	public void setAccounts(Accounts accounts) {
 		this.accounts = accounts;
 	}
 
@@ -55,38 +64,28 @@ public class FixedDeposit {
 		this.principalAmount = principalAmount;
 	}
 
-	public String getStartDate() {
+	public Date getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(String startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
 
-	public String getEndDate() {
+	public Date getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(String endDate) {
+	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
 
-	/*
-	 * @ Column(name = "maturity_amount") private double maturityAmount;
-	 * 
-	 * @Column(name = "interest_earned") private double interestEarned;
-	 * 
-	 * @Column(name="account_no") private String accountNo;
-	 */
+	public double getMaturityValue() {
+		return maturityValue;
+	}
 
-	/*
-	 * public String getAccounts() { return accountNo; } public void
-	 * setAccounts(String accountNo) { this.accountNo = accountNo; } public void
-	 * setMaturityAmount(double maturityAmount) { this.maturityAmount =
-	 * maturityAmount; } public double getInterestEarned() { return interestEarned;
-	 * } public void setInterestEarned(double interestEarned) { this.interestEarned
-	 * = interestEarned; } public double getMaturityAmount() { return
-	 * maturityAmount; }
-	 */
+	public void setMaturityValue(double maturityValue) {
+		this.maturityValue = maturityValue;
+	}
 
 }

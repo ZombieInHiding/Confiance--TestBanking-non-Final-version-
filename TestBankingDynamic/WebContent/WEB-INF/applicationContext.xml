@@ -8,7 +8,7 @@
 	xmlns:tx="http://www.springframework.org/schema/tx">
 	
 	<!-- Repo package -->
-	<context:component-scan base-package="com.bank.repo" />
+	<context:component-scan base-package="com.bank.repo, com.bank.service" />
 
 
 	<bean id="ds"
@@ -32,7 +32,7 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>com.bank.entity.FixedDeposit</value>
-				<value>com.bank.entity.Account</value>
+				<value>com.bank.entity.Accounts</value>
 				<value>com.bank.entity.Aadhaar</value>
 			</list>
 		</property>
